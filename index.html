@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey Holidays</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            padding-top: 90px;
+        }
+
+        /* ================= HEADER ================= */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 50px;
+            background-color: #007bff;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            padding: 8px 12px;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #e0f0ff;
+            min-width: 160px;
+            border: 1px solid #007bff;
+        }
+
+        .dropdown-content a {
+            color: #007bff;
+            padding: 10px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #cce5ff;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .call-btn {
+            background-color: #0056b3;
+            padding: 10px 16px;
+            font-weight: bold;
+            border-radius: 3px;
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .call-btn:hover {
+            background-color: #003f7f;
+        }
+
+        .upcoming-packages {
+            background: #e9f8e9;
+            padding: 70px 60px;
+            text-align: center;
+        }
+
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .upcoming-card {
+            min-width: 25%;
+            background: #fff;
+            margin: 0 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: left;
+            padding-bottom: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .upcoming-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .upcoming-card h4 {
+            font-size: 16px;
+            margin: 12px;
+        }
+
+        .upcoming-card p {
+            margin: 0 12px;
+            color: #2e7d32;
+            font-weight: 600;
+        }
+
+        /* DOTS */
+        .carousel-dots {
+            margin-top: 25px;
+        }
+
+        .carousel-dots span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 6px;
+            background: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .carousel-dots span.active {
+            background: #2e7d32;
+        }
+
+        /* MOBILE */
+        @media(max-width: 992px) {
+            .upcoming-card {
+                min-width: 50%;
+            }
+        }
+
+        @media(max-width: 576px) {
+            .upcoming-card {
+                min-width: 100%;
+            }
+        }
+
+
+        /* ================= HERO SLIDER ================= */
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 90vh;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) translateY(20px);
+            color: white;
+            text-align: center;
+            max-width: 800px;
+            opacity: 0;
+            transition: all 1s ease;
+        }
+
+        .slide.active .content {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+
+        .content h1 {
+            font-size: 64px;
+            font-weight: 600;
+        }
+
+        .content p {
+            margin-top: 18px;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            z-index: 10;
+            user-select: none;
+        }
+
+        .arrow.left {
+            left: 30px;
+        }
+
+        .arrow.right {
+            right: 30px;
+        }
+
+        /* ================= POPULAR PACKAGES ================= */
+        .popular-packages {
+            padding: 70px 60px;
+            background: #fff;
+
+            /* smooth reveal */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+            will-change: transform, opacity;
+        }
+
+        .popular-packages.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .popular-packages h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .package-card {
+            position: relative;
+            height: 260px;
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+            will-change: transform, opacity;
+        }
+
+        .package-card.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .package-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .package-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .package-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            color: white;
+        }
+
+        .package-overlay span {
+            background: #ffc107;
+            color: #000;
+            padding: 6px 12px;
+            font-size: 14px;
+            border-radius: 4px;
+            width: fit-content;
+        }
+
+        /* ================= MOBILE ================= */
+        @media(max-width:768px) {
+
+            header {
+                padding: 10px 12px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: nowrap;
+                /* 🔥 MUST */
+                width: auto;
+                gap: 8px;
+            }
+
+            nav a {
+                font-size: 12px;
+                padding: 6px;
+                white-space: nowrap;
+                /* 🔥 text break stop */
+            }
+
+            .call-btn {
+                font-size: 12px;
+                padding: 8px 10px;
+                min-width: max-content;
+                /* 🔥 FINAL LOCK */
+            }
+        }
+
+
+
+
+        .content h1 {
+            font-size: 36px;
+        }
+
+        .content p {
+            font-size: 16px;
+        }
+
+        .popular-packages {
+            padding: 40px 20px;
+        }
+
+
+        /* ================= WHY CHOOSE US ================= */
+        .why-choose {
+            background: #f9f9f9;
+            padding: 80px 60px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .why-card {
+            background: #fff;
+            padding: 40px 25px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .why-card.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .why-icon {
+            font-size: 60px;
+            color: #ffc107;
+            margin-bottom: 20px;
+        }
+
+        .why-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .why-card p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Mobile */
+        @media(max-width:768px) {
+            .why-choose {
+                padding: 50px 20px;
+            }
+        }
+
+        .call-btn {
+            background-color: #0056b3;
+            padding: 10px 16px;
+            font-weight: bold;
+            border-radius: 3px;
+            color: white;
+            text-decoration: none;
+
+            display: flex;
+            /* 🔥 important */
+            align-items: center;
+            white-space: nowrap;
+            /* 🔥 +91 break aagaadhu */
+        }
+
+        @media(max-width:360px) {
+            nav a:not(.call-btn) {
+                display: none;
+                /* hide menu links */
+            }
+
+            .call-btn {
+                font-size: 11px;
+                padding: 6px 8px;
+            }
+
+            .logo img {
+                height: 45px;
+            }
+        }
+
+        @media(max-width:576px) {
+            .content h1 {
+                font-size: 28px;
+                line-height: 1.2;
+            }
+
+            .content p {
+                font-size: 14px;
+            }
+        }
+
+        .carousel-track {
+            scroll-behavior: smooth;
+            will-change: transform;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="./Images/final logo.png" style="height:58px;">
+            <div>Journey<br><span>Holidays</span></div>
+        </div>
+
+        <nav>
+            <a href="#">HOME</a>
+            <div class="dropdown">
+                <a href="#">COMPANY</a>
+                <div class="dropdown-content">
+                    <a href="#">About Us</a>
+                    <a href="#">History</a>
+                    <a href="#">Awards & Achievements</a>
+                    <a href="#">Media</a>
+                    <a href="#">Testimonials</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Blog</a>
+                    <a href="#">FAQs</a>
+                </div>
+            </div>
+            <a href="#">GROUP TOURS</a>
+            <a href="#">PACKAGES</a>
+            <a href="#">INDIA</a>
+            <a href="#">HONEYMOON</a>
+            <a href="#">WEDDING</a>
+            <a href="#">CONTACT</a>
+            <a href="tel:+918344441997" class="call-btn">
+                +91&nbsp;8344441997
+            </a>
+
+        </nav>
+    </header>
+
+    <div class="hero-slider">
+        <div class="slide active" style="background-image:url('./Images/hero.jpg');">
+            <div class="overlay"></div>
+            <div class="content">
+                <h1>Explore the World with Journey Holidays</h1>
+                <p>From serene beaches to iconic landmarks, Journey Holidays crafts unforgettable travel experiences.
+                </p>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image:url('./Images/hero.jpg');">
+            <div class="overlay"></div>
+            <div class="content">
+                <h1>Explore the World with Journey Holidays</h1>
+                <p>From serene beaches to iconic landmarks, Journey Holidays crafts unforgettable travel experiences.
+                </p>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image:url('./Images/hero.jpg');">
+            <div class="overlay"></div>
+            <div class="content">
+                <h1>Explore the World with Journey Holidays</h1>
+                <p>From serene beaches to iconic landmarks, Journey Holidays crafts unforgettable travel experiences.
+                </p>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image:url('./Images/hero.jpg');">
+            <div class="overlay"></div>
+            <div class="content">
+                <h1>Explore the World with Journey Holidays</h1>
+                <p>From serene beaches to iconic landmarks, Journey Holidays crafts unforgettable travel experiences.
+                </p>
+            </div>
+        </div>
+
+        <div class="arrow left" onclick="prevSlide()">❮</div>
+        <div class="arrow right" onclick="nextSlide()">❯</div>
+    </div>
+    <section class="upcoming-packages">
+        <h2>Upcoming Holiday Packages</h2>
+
+        <div class="carousel-container" style="margin-top:40px;">
+            <div class="carousel-track">
+                <div class="upcoming-card">
+                    <img src="./Images/up3.jpg">
+                    <h4>Tawang Bike Trip 2026</h4>
+                    <p>₹30,499</p>
+                </div>
+
+                <div class="upcoming-card">
+                    <img src="./Images/up2.jpg">
+                    <h4>Winter Spiti Valley Tour</h4>
+                    <p>₹19,490</p>
+                </div>
+
+                <div class="upcoming-card">
+                    <img src="./Images/up1.jpg">
+                    <h4>Meghalaya & Kaziranga</h4>
+                    <p>₹25,500</p>
+                </div>
+
+                <div class="upcoming-card">
+                    <img src="./Images/up4.jpg">
+                    <h4>Meghalaya Adventure</h4>
+                    <p>₹19,900</p>
+                </div>
+
+                <div class="upcoming-card">
+                    <img src="./Images/up5.jpg">
+                    <h4>Chadar Trek 2026</h4>
+                    <p>₹19,900</p>
+                </div>
+
+                <div class="upcoming-card">
+                    <img src="./Images/up6.jpg">
+                    <h4>Snow Himalayan Trek</h4>
+                    <p>₹22,500</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-dots"></div>
+    </section>
+
+
+    <section class="popular-packages">
+        <h2>Popular Tour Packages</h2>
+
+        <div class="package-grid">
+            <a href="#" class="package-card">
+                <img src="./Images/india.jpg">
+                <div class="package-overlay">
+                    <h3>India Tour Packages</h3>
+                    <span>98 Tours</span>
+                </div>
+            </a>
+
+            <a href="#" class="package-card">
+                <img src="./Images/international.jpg">
+                <div class="package-overlay">
+                    <h3>International Tour Packages</h3>
+                    <span>362 Tours</span>
+                </div>
+            </a>
+
+            <a href="#" class="package-card">
+                <img src="./Images/honeymoon.jpg">
+                <div class="package-overlay">
+                    <h3>Honeymoon Packages</h3>
+                    <span>45 Tours</span>
+                </div>
+            </a>
+
+            <a href="#" class="package-card">
+                <img src="./Images/europe.jpg">
+                <div class="package-overlay">
+                    <h3>Europe Tour Packages</h3>
+                    <span>144 Tours</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="why-choose">
+        <div class="why-grid">
+
+            <div class="why-card">
+                <div class="why-icon">👤</div>
+                <h3>50,000+ Abroad Trips</h3>
+                <p>
+                    For the last decade, Journey Holidays has organized
+                    more than 50,000 international itineraries.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-icon">📍</div>
+                <h3>Handcrafted Experiences</h3>
+                <p>
+                    Each and every itinerary is customized according
+                    to the taste of the customers.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-icon">😊</div>
+                <h3>Extremely Happy Travellers</h3>
+                <p>
+                    Journey Holidays holds record of great customer
+                    satisfaction and long-term trust.
+                </p>
+            </div>
+
+        </div>
+    </section>
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const cards = Array.from(document.querySelectorAll('.upcoming-card'));
+        const dotsContainer = document.querySelector('.carousel-dots');
+
+        const cardsPerView = 4;
+        let currentIndex = 0;
+
+        // Clone first 4 cards for smooth loop
+        for (let i = 0; i < cardsPerView; i++) {
+            const clone = cards[i].cloneNode(true);
+            track.appendChild(clone);
+        }
+
+        const totalSlides = Math.ceil(cards.length / cardsPerView);
+
+        // Create dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('span');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => moveToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        const dots = document.querySelectorAll('.carousel-dots span');
+
+        function moveToSlide(index) {
+            currentIndex = index;
+            track.style.transition = 'transform 0.8s ease-in-out';
+            track.style.transform = `translateX(-${index * 100}%)`;
+
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index]?.classList.add('active');
+        }
+
+        function autoSlide() {
+            currentIndex++;
+
+            track.style.transition = 'transform 0.8s ease-in-out';
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            if (currentIndex === totalSlides) {
+                setTimeout(() => {
+                    track.style.transition = 'none';
+                    currentIndex = 0;
+                    track.style.transform = `translateX(0)`;
+                }, 850);
+            }
+
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentIndex % totalSlides]?.classList.add('active');
+        }
+
+        setInterval(autoSlide, 4000);
+
+
+
+
+        /* HERO SLIDER */
+        const slides = document.querySelectorAll('.slide');
+        let index = 0;
+
+        function showSlide(i) {
+            slides.forEach(s => s.classList.remove('active'));
+            slides[i].classList.add('active');
+        }
+
+        function nextSlide() {
+            index = (index + 1) % slides.length;
+            showSlide(index);
+        }
+
+        function prevSlide() {
+            index = (index - 1 + slides.length) % slides.length;
+            showSlide(index);
+        }
+
+        setInterval(nextSlide, 5000);
+
+        /* SMOOTH SCROLL ANIMATION */
+        const section = document.querySelector('.popular-packages');
+        const packageCards = document.querySelectorAll('.package-card');
+
+        const observer = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                section.classList.add('reveal');
+
+                packageCards.forEach((card, i) => {
+                    setTimeout(() => {
+                        card.classList.add('reveal');
+                    }, i * 180);
+                });
+
+                observer.unobserve(section);
+            }
+        }, { threshold: 0.25 });
+
+        observer.observe(section);
+
+        /* WHY CHOOSE US animation */
+        const whyCards = document.querySelectorAll('.why-card');
+
+        const whyObserver = new IntersectionObserver(entries => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('reveal');
+                    }, index * 200);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        whyCards.forEach(card => whyObserver.observe(card));
+
+    </script>
+
+</body>
+
+</html>
