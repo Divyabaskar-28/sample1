@@ -140,7 +140,9 @@
             width: 100%;
             height: 180px;
             object-fit: cover;
+            display: block;
         }
+
 
         .upcoming-card h4 {
             font-size: 16px;
@@ -485,6 +487,639 @@
             scroll-behavior: smooth;
             will-change: transform;
         }
+
+        .stress-free {
+            padding: 70px 20px;
+            background: #fff;
+            /* White background */
+        }
+
+        .stress-free h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 50px;
+        }
+
+        /* Stress cards */
+        .stress-card {
+            background: #fff;
+            /* White card background */
+            color: #000;
+            border-radius: 12px;
+            text-align: center;
+            padding: 20px 15px;
+            margin: 0 10px;
+            min-width: 25%;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            transition: transform 0.3s ease;
+            /* smooth hover effect */
+        }
+
+        .stress-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .stress-card h4 {
+            margin: 15px 0 8px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #007bff;
+            /* Blue titles */
+        }
+
+        .stress-card p {
+            margin-bottom: 12px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .stress-card .features {
+            font-size: 13px;
+            color: #555;
+            text-align: left;
+            margin: 10px 0;
+        }
+
+        .stress-card .features span {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stress-card .call-btn {
+            margin-top: auto;
+            background: #007bff;
+            /* Blue button */
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 16px;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+
+        /* Smooth scrolling for carousel */
+        .stress-free .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            /* smooth movement */
+            scroll-behavior: smooth;
+            /* smooth scrolling */
+            will-change: transform;
+        }
+
+        .stress-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 38px;
+            color: #007bff;
+            cursor: pointer;
+            z-index: 10;
+            background: #fff;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+            user-select: none;
+        }
+
+        .stress-arrow.left {
+            left: 10px;
+            /* ❌ -20px illa */
+        }
+
+        .stress-arrow.right {
+            right: 10px;
+            /* ❌ -20px illa */
+        }
+
+
+        .stress-arrow:hover {
+            background: #007bff;
+            color: #fff;
+        }
+
+        @media(max-width:768px) {
+            .stress-arrow {
+                display: none;
+                /* swipe only on mobile */
+            }
+        }
+
+        .jh-premium {
+            padding: 80px 60px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .jh-premium h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            font-weight: 600;
+            color: #003366;
+        }
+
+        .jh-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .jh-card {
+            position: relative;
+            height: 360px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .jh-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .jh-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .jh-info {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(to top, #0056b3, #1e90ff);
+            color: #fff;
+            text-align: center;
+        }
+
+        .jh-info span {
+            font-size: 13px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .jh-info h3 {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .jh-btn {
+            display: inline-block;
+            margin-top: 40px;
+            background: #007bff;
+            color: #fff;
+            padding: 12px 32px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .jh-btn:hover {
+            background: #0056b3;
+        }
+
+        .jh-track {
+            display: flex;
+            gap: 25px;
+            transition: transform 0.8s ease-in-out;
+            will-change: transform;
+        }
+
+        .jh-card {
+            min-width: 260px;
+            /* 🔥 carousel width */
+            height: 360px;
+            flex-shrink: 0;
+        }
+
+        /* mobile */
+        @media(max-width:768px) {
+            .jh-card {
+                min-width: 80%;
+            }
+        }
+
+        /* ================= EXPERIENCE SECTION ================= */
+
+        .experience-section {
+            position: relative;
+            height: 90vh;
+            overflow: hidden;
+        }
+
+        /* Video */
+        .bg-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Overlay */
+        .exp-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(173, 216, 230, 0.85);
+
+        }
+
+        /* Layout */
+        .exp-container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding: 0 80px;
+        }
+
+        /* Text */
+        .exp-text {
+            max-width: 520px;
+            color: #000;
+        }
+
+        .small-title {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .exp-text h2 {
+            font-size: 40px;
+            margin: 12px 0 20px;
+        }
+
+        .exp-text p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .exp-text h4 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .exp-text span {
+            font-size: 13px;
+            color: #333;
+        }
+
+        /* Play button */
+        .exp-video-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* Dots */
+        .exp-dots {
+            margin-top: 30px;
+        }
+
+        .exp-dots .dot {
+            width: 8px;
+            height: 8px;
+            background: #555;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            cursor: pointer;
+            opacity: 0.4;
+        }
+
+        .exp-dots .dot.active {
+            opacity: 1;
+        }
+
+        /* Mobile */
+        @media(max-width:768px) {
+            .exp-container {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .exp-video-btn {
+                margin-top: 30px;
+            }
+
+            .exp-text h2 {
+                font-size: 28px;
+            }
+        }
+
+        /* ================= CONTACT SECTION ================= */
+
+        .contact-section {
+            background: #f7f7f7;
+            padding: 80px 20px;
+        }
+
+        .contact-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* LEFT */
+        .contact-left h3 {
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* RIGHT FORM */
+        .contact-form h3 {
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+
+        .contact-form form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .contact-form input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .contact-form .captcha {
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .contact-form button {
+            background: #007bff;
+            border: none;
+            padding: 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background: #007bff;
+        }
+
+        /* MOBILE */
+        @media(max-width:768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        /* ================= FLOATING ACTION BUTTONS ================= */
+
+        .floating-actions {
+            position: fixed;
+            left: 15px;
+            bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            z-index: 9999;
+        }
+
+        /* WhatsApp */
+        .whatsapp-float {
+            width: 55px;
+            height: 55px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .whatsapp-float img {
+            width: 32px;
+        }
+
+        /* Enquire */
+        .enquire-float {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            font-weight: 700;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .enquire-float:hover {
+            background: #0056b3;
+        }
+
+        /* Mobile size */
+        @media(max-width:576px) {
+            .enquire-float {
+                padding: 8px 14px;
+                font-size: 12px;
+            }
+        }
+
+        /* ================= GT STYLE FOOTER ================= */
+
+        .gt-footer {
+            background: #1a1a1a;
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        .gt-footer-top {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            padding: 70px 80px;
+        }
+
+        .footer-col h4 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #fff;
+            position: relative;
+        }
+
+        .footer-col h4::after {
+            content: "";
+            width: 50px;
+            height: 1px;
+            background: #777;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .footer-col p {
+            line-height: 1.7;
+            color: #ccc;
+        }
+
+        /* Branch list */
+        .branch-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 30px;
+        }
+
+        /* Middle row */
+        .gt-footer-mid {
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            padding: 35px 80px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .gt-footer-mid small {
+            color: #aaa;
+        }
+
+        .gt-footer-mid h3 {
+            margin-top: 8px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        /* Social */
+        .social .icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social .icons span {
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* Bottom bar */
+        .gt-footer-bottom {
+            background: #fff;
+            color: #000;
+            padding: 18px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #000;
+            font-size: 13px;
+        }
+
+        .footer-enquire {
+            background: #ffc107;
+            border: none;
+            padding: 10px 22px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* Mobile */
+        @media(max-width:900px) {
+
+            .gt-footer-top,
+            .gt-footer-mid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .branch-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gt-footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* ===== GLOBAL SECTION HEADING COLOR ===== */
+        
+        section h2
+     {
+           color: #003366;
+            /* dark blue – premium look */
+            font-weight: 600;
+            font-size:36px;
+        }
+
+        section {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        @media (max-width: 480px) {
+            header {
+                flex-wrap: nowrap;
+            }
+
+            nav {
+                overflow-x: auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-slider {
+                height: 70vh;
+            }
+
+            .content h1 {
+                font-size: 26px;
+            }
+
+            .content p {
+                font-size: 14px;
+            }
+        }
+
+        
     </style>
 </head>
 
@@ -525,7 +1160,7 @@
     </header>
 
     <div class="hero-slider">
-        <div class="slide active" style="background-image:url('./Images/hero.jpg');">
+        <div class="slide active" style="background-image:url('./Images/beach.jpg');">
             <div class="overlay"></div>
             <div class="content">
                 <h1>Explore the World with Journey Holidays</h1>
@@ -534,7 +1169,7 @@
             </div>
         </div>
 
-        <div class="slide" style="background-image:url('./Images/hero.jpg');">
+        <div class="slide" style="background-image:url('./Images/pic2.jpg');">
             <div class="overlay"></div>
             <div class="content">
                 <h1>Explore the World with Journey Holidays</h1>
@@ -543,7 +1178,7 @@
             </div>
         </div>
 
-        <div class="slide" style="background-image:url('./Images/hero.jpg');">
+        <div class="slide" style="background-image:url('./Images/pic3.jpg');">
             <div class="overlay"></div>
             <div class="content">
                 <h1>Explore the World with Journey Holidays</h1>
@@ -552,7 +1187,7 @@
             </div>
         </div>
 
-        <div class="slide" style="background-image:url('./Images/hero.jpg');">
+        <div class="slide" style="background-image:url('./Images/pic4.jpg');">
             <div class="overlay"></div>
             <div class="content">
                 <h1>Explore the World with Journey Holidays</h1>
@@ -681,62 +1316,433 @@
 
         </div>
     </section>
+
+    <section class="stress-free">
+        <h2 style="text-align:center; margin-bottom:40px;color: #003366;">Stress-Free Holidays with Journey Holidays</h2>
+
+        <div class="carousel-container" style="margin:0 auto; max-width:1200px;">
+            <div class="stress-arrow left" onclick="stressPrev()">❮</div>
+            <div class="stress-arrow right" onclick="stressNext()">❯</div>
+            <div class="carousel-track">
+                <!-- Card 1 -->
+                <div class="stress-card">
+                    <img src="./Images/stress1.jpg" alt="Zero Processing Fee">
+                    <h4>ZERO PROCESSING FEE WITH Journey Holidays</h4>
+                    <p>Stress-Free Vacation with Journey Holidays</p>
+                    <div class="features">
+                        <span><b>Easy Processing:</b> Get your approval within 4 days</span>
+                        <span><b>Best EMI Option:</b> No down-payment, No processing fees, No interest</span>
+                    </div>
+                    <a href="tel:+918344441997" class="call-btn">CALL US AT 8344441997</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="stress-card">
+                    <img src="./Images/stress2.jpg" alt="Zero Rupees Down">
+                    <h4>ZERO RUPEES DOWN PAYMENT WITH Journey Holidays</h4>
+                    <p>Stress-Free Vacation with Journey Holidays</p>
+                    <div class="features">
+                        <span><b>Easy Processing:</b> Get your approval within 4 days</span>
+                        <span><b>Best EMI Option:</b> No down-payment, No processing fees, No interest</span>
+                    </div>
+                    <a href="tel:+918344441997" class="call-btn">CALL US AT 8344441997</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="stress-card">
+                    <img src="./Images/stress3.jpg" alt="No Cost EMI" style="      /* full image visible */
+    object-position: top center;">
+                    <h4>NO COST EMI HOLIDAYS WITH Journey Holidays</h4>
+                    <p>Stress-Free Vacation with Journey Holidays</p>
+                    <div class="features">
+                        <span><b>Easy Processing:</b> Get your approval within 4 days</span>
+                        <span><b>Best EMI Option:</b> No down-payment, No processing fees, No interest</span>
+                    </div>
+                    <a href="tel:+918344441997" class="call-btn">CALL US AT 8344441997</a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="stress-card">
+                    <img src="./Images/stress4.jpg" alt="Zero Interest">
+                    <h4>ZERO RUPEES INTEREST WITH Journey Holidays</h4>
+                    <p>Stress-Free Vacation with Journey Holidays</p>
+                    <div class="features">
+                        <span><b>Easy Processing:</b> Get your approval within 4 days</span>
+                        <span><b>Best EMI Option:</b> No down-payment, No processing fees, No interest</span>
+                    </div>
+                    <a href="tel:+918344441997" class="call-btn">CALL US AT 8344441997</a>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="stress-card">
+                    <img src="./Images/stress5.jpg" alt="Flexible Dates">
+                    <h4>FLEXIBLE DATES WITH Journey Holidays</h4>
+                    <p>Stress-Free Vacation with Journey Holidays</p>
+                    <div class="features">
+                        <span>Choose your convenient travel dates</span>
+                        <span>Flexible EMI and payment options</span>
+                    </div>
+                    <a href="tel:+918344441997" class="call-btn">CALL US AT 8344441997</a>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="stress-card">
+                    <img src="./Images/stress6.jpg" alt="Custom Itineraries">
+                    <h4>CUSTOM ITINERARIES WITH Journey Holidays</h4>
+                    <p>Stress-Free Vacation with Journey Holidays</p>
+                    <div class="features">
+                        <span>Personalized tours according to your preference</span>
+                        <span>No hidden charges, complete transparency</span>
+                    </div>
+                    <a href="tel:+918344441997" class="call-btn">CALL US AT 8344441997</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="experience-section">
+
+        <!-- Background Video -->
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="./Images/experience.mp4" type="video/mp4">
+        </video>
+
+        <!-- Overlay -->
+        <div class="exp-overlay"></div>
+
+        <!-- Content -->
+        <div class="exp-container">
+
+            <div class="exp-text">
+                <span class="small-title">Look Inside</span>
+                <h2>Our Holiday Packages<br>Experiences</h2>
+
+                <p id="exp-desc">
+                    “I am so happy to book my travel experience with Journey Holidays.
+                    The team was well trained, professional and answered all my queries.”
+                </p>
+
+                <h4 id="exp-name">Shubham Srivastava</h4>
+                <span id="exp-role">Traveller</span>
+
+                <!-- Pagination dots -->
+                <div class="exp-dots">
+                    <span class="dot active" onclick="showExp(0)"></span>
+                    <span class="dot" onclick="showExp(1)"></span>
+                    <span class="dot" onclick="showExp(2)"></span>
+                </div>
+            </div>
+
+            <!-- Play Button -->
+            <div class="exp-video-btn">
+                <span>▶</span>
+            </div>
+
+        </div>
+    </section>
+    <section class="jh-premium">
+        <h2>Premium Group Tours</h2>
+
+
+        <div class="carousel-container" style="position:relative; max-width:1200px; margin:0 auto;">
+            <div class="stress-arrow left" onclick="premiumPrev()">❮</div>
+            <div class="stress-arrow right" onclick="premiumNext()">❯</div>
+
+            <div class="jh-track">
+
+                <div class="jh-card">
+                    <img src="./Images/russia.jpg">
+                    <div class="jh-info">
+                        <span>9 Nights / 10 Days</span>
+                        <h3>Russia<br>Group Departure</h3>
+                    </div>
+                </div>
+
+                <div class="jh-card">
+                    <img src="./Images/europe-winter.jpg">
+                    <div class="jh-info">
+                        <span>9 Nights / 10 Days</span>
+                        <h3>Europe Winter<br>Group Departure</h3>
+                    </div>
+                </div>
+
+                <div class="jh-card">
+                    <img src="./Images/bali.jpg">
+                    <div class="jh-info">
+                        <span>4 Nights / 5 Days</span>
+                        <h3>Fantastic Bali<br>Group Departure</h3>
+                    </div>
+                </div>
+
+                <div class="jh-card">
+                    <img src="./Images/egypt.jpg">
+                    <div class="jh-info">
+                        <span>4 Nights / 5 Days</span>
+                        <h3>Dreams of Egypt<br>Group Tour</h3>
+                    </div>
+                </div>
+
+                <div class="jh-card">
+                    <img src="./Images/dubai.jpg">
+                    <div class="jh-info">
+                        <span>5 Nights / 6 Days</span>
+                        <h3>Dubai<br>Group Tour</h3>
+                    </div>
+                </div>
+
+                <div class="jh-card">
+                    <img src="./Images/singapore.jpg">
+                    <div class="jh-info">
+                        <span>6 Nights / 7 Days</span>
+                        <h3>Singapore & Malaysia<br>Group Tour</h3>
+                    </div>
+                </div>
+
+                <div class="jh-card">
+                    <img src="./Images/thailand.jpg">
+                    <div class="jh-info">
+                        <span>5 Nights / 6 Days</span>
+                        <h3>Thailand<br>Group Tour</h3>
+                    </div>
+                </div>
+
+                <div class="jh-card">
+                    <img src="./Images/australia.jpg">
+                    <div class="jh-info">
+                        <span>9 Nights / 10 Days</span>
+                        <h3>Australia<br>Group Tour</h3>
+                    </div>
+                </div>
+
+                <div class="jh-card">
+                    <img src="./Images/japan.jpg">
+                    <div class="jh-info">
+                        <span>6 Nights / 7 Days</span>
+                        <h3>Japan<br>Group Tour</h3>
+                    </div>
+                </div>
+
+                <div class="jh-card">
+                    <img src="./Images/turkey.jpg">
+                    <div class="jh-info">
+                        <span>7 Nights / 8 Days</span>
+                        <h3>Turkey<br>Group Tour</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <a href="#" class="jh-btn">KNOW MORE</a>
+    </section>
+    <section class="contact-section" id="contact">
+
+        <div class="contact-container">
+
+            <!-- LEFT SIDE -->
+            <div class="contact-left">
+                <h3>Stay Connected</h3>
+
+                <div class="contact-item">
+                    📞
+                    <span>+91 8344441997</span>
+                </div>
+
+                <div class="contact-item">
+                    ✉️
+                    <span>mail@journeyholidays.in</span>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE FORM -->
+            <div class="contact-form">
+                <h3>Book Your Dream Vacay Today!</h3>
+
+                <form>
+                    <input type="text" placeholder="Name *" required>
+                    <input type="text" placeholder="City of Residence *" required>
+                    <input type="email" placeholder="Email *" required>
+                    <input type="tel" placeholder="Phone Number *" required>
+                    <input type="text" placeholder="WhatsApp">
+                    <input type="text" placeholder="Travel Destination *" required>
+                    <input type="date" required>
+                    <input type="number" placeholder="No. of People *" required>
+                    <input type="text" placeholder="Vacation Type *">
+
+                    <label class="captcha">Captcha *</label>
+                    <input type="text" placeholder="10 + 10 =">
+
+                    <button type="submit">SUBMIT</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FLOATING WHATSAPP & ENQUIRE -->
+    <div class="floating-actions">
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/918344441997" target="_blank" class="whatsapp-float">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
+
+        <!-- Enquire -->
+        <button class="enquire-float" onclick="scrollToContact()">
+            ENQUIRE
+        </button>
+
+    </div>
+    <footer class="gt-footer">
+
+        <div class="gt-footer-top">
+
+            <!-- Corporate Office -->
+            <div class="footer-col">
+                <h4>Corporate Office</h4>
+                <p>
+                    Journey Holidays Pvt LTD,<br>
+                    Novel Tech Park,<br>
+                    Opposite to 1 MG Mall,<br>
+                    MG Road, Bangalore – 560042<br>
+                    Karnataka, India.
+                </p>
+            </div>
+
+            <!-- Head Office -->
+            <div class="footer-col">
+                <h4>Head Office</h4>
+                <p>
+                    Journey Holidays Pvt LTD,<br>
+                    No.1, Nehru Parsn,<br>
+                    Kodambakkam High Road,<br>
+                    Nungambakkam, Chennai – 600006<br>
+                    Tamil Nadu, India.
+                </p>
+            </div>
+
+            <!-- Branches -->
+            <div class="footer-col">
+                <h4>Our Branches</h4>
+                <div class="branch-grid">
+                    <span>Mumbai</span>
+                    <span>Hyderabad</span>
+                    <span>Bangalore</span>
+                    <span>Chennai</span>
+                    <span>Coimbatore</span>
+                    <span>Erode</span>
+                    <span>Madurai</span>
+
+                    <span>Trichy</span>
+                    <span>Salem</span>
+                    <span>Kochi</span>
+                    <span>Vellore</span>
+                    <span>Pondicherry</span>
+                    <span>Nagercoil</span>
+                    <span>Kanyakumari</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Contact row -->
+        <div class="gt-footer-mid">
+            <div>
+                <small>Call Us</small>
+                <h3>+91 8344441997</h3>
+            </div>
+
+            <div>
+                <small>Email Us</small>
+                <h3>mail@journeyholidays.in</h3>
+            </div>
+
+            <div class="social">
+                <small>Follow Us</small>
+                <div class="icons">
+                    <span>f</span>
+                    <span>📸</span>
+                    <span>in</span>
+                    <span>▶</span>
+                    <span>G</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="gt-footer-bottom">
+            <p>Copyright © 2026 Journey Holidays Pvt Ltd. All Rights Reserved.</p>
+
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Terms & Conditions</a> |
+                <a href="#">Cancellation & Refund Policy</a>
+            </div>
+
+            <!-- <button class="footer-enquire" onclick="scrollToContact()">ENQUIRE NOW</button> -->
+        </div>
+
+    </footer>
+
     <script>
-        const track = document.querySelector('.carousel-track');
-        const cards = Array.from(document.querySelectorAll('.upcoming-card'));
-        const dotsContainer = document.querySelector('.carousel-dots');
 
-        const cardsPerView = 4;
-        let currentIndex = 0;
+        window.addEventListener('load', () => {
 
-        // Clone first 4 cards for smooth loop
-        for (let i = 0; i < cardsPerView; i++) {
-            const clone = cards[i].cloneNode(true);
-            track.appendChild(clone);
-        }
+            const track = document.querySelector('.upcoming-packages .carousel-track');
+            const cards = Array.from(document.querySelectorAll('.upcoming-card'));
+            const dotsContainer = document.querySelector('.carousel-dots');
 
-        const totalSlides = Math.ceil(cards.length / cardsPerView);
+            const cardsPerView = 4;
+            let currentIndex = 0;
 
-        // Create dots
-        for (let i = 0; i < totalSlides; i++) {
-            const dot = document.createElement('span');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => moveToSlide(i));
-            dotsContainer.appendChild(dot);
-        }
+            /* 🔒 Lock track width to prevent jump */
+            track.style.willChange = 'transform';
 
-        const dots = document.querySelectorAll('.carousel-dots span');
-
-        function moveToSlide(index) {
-            currentIndex = index;
-            track.style.transition = 'transform 0.8s ease-in-out';
-            track.style.transform = `translateX(-${index * 100}%)`;
-
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[index]?.classList.add('active');
-        }
-
-        function autoSlide() {
-            currentIndex++;
-
-            track.style.transition = 'transform 0.8s ease-in-out';
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-            if (currentIndex === totalSlides) {
-                setTimeout(() => {
-                    track.style.transition = 'none';
-                    currentIndex = 0;
-                    track.style.transform = `translateX(0)`;
-                }, 850);
+            /* Clone first 4 cards AFTER images loaded */
+            for (let i = 0; i < cardsPerView; i++) {
+                const clone = cards[i].cloneNode(true);
+                track.appendChild(clone);
             }
 
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[currentIndex % totalSlides]?.classList.add('active');
-        }
+            const totalSlides = Math.ceil(cards.length / cardsPerView);
 
-        setInterval(autoSlide, 4000);
+            // Create dots
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('span');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => moveToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
 
+            const dots = document.querySelectorAll('.carousel-dots span');
 
+            function moveToSlide(index) {
+                currentIndex = index;
+                track.style.transition = 'transform 0.8s ease-in-out';
+                track.style.transform = `translateX(-${index * 100}%)`;
+
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[index]?.classList.add('active');
+            }
+
+            function autoSlide() {
+                currentIndex++;
+                track.style.transition = 'transform 0.8s ease-in-out';
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                if (currentIndex === totalSlides) {
+                    setTimeout(() => {
+                        track.style.transition = 'none';
+                        currentIndex = 0;
+                        track.style.transform = `translateX(0)`;
+                    }, 850);
+                }
+
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[currentIndex % totalSlides]?.classList.add('active');
+            }
+
+            setInterval(autoSlide, 4000);
+        });
 
 
         /* HERO SLIDER */
@@ -794,8 +1800,142 @@
         }, { threshold: 0.3 });
 
         whyCards.forEach(card => whyObserver.observe(card));
+        const stressTrack = document.querySelector('.stress-free .carousel-track');
+        const stressCards = Array.from(document.querySelectorAll('.stress-card'));
+        let stressIndex = 0;
+
+        const stressPerView = 4; // Number of cards visible at once
+        const cardStyle = getComputedStyle(stressCards[0]);
+        const cardMargin = parseInt(cardStyle.marginRight) + parseInt(cardStyle.marginLeft);
+        const cardWidth = stressCards[0].offsetWidth + cardMargin;
+
+        function stressMoveToSlide(i) {
+            stressIndex = i;
+            stressTrack.style.transition = 'transform 0.8s ease-in-out';
+            stressTrack.style.transform = `translateX(-${i * cardWidth}px)`;
+        }
+
+        // Auto slide
+        function stressAutoSlide() {
+            stressIndex++;
+            if (stressIndex > stressCards.length - stressPerView) {
+                setTimeout(() => {
+                    stressTrack.style.transition = 'none';
+                    stressIndex = 0;
+                    stressTrack.style.transform = `translateX(0)`;
+                }, 850);
+            } else {
+                stressTrack.style.transition = 'transform 0.8s ease-in-out';
+                stressTrack.style.transform = `translateX(-${stressIndex * cardWidth}px)`;
+            }
+        }
+        function stressNext() {
+            stressIndex++;
+            if (stressIndex > stressCards.length - stressPerView) {
+                stressIndex = 0;
+            }
+            stressTrack.style.transition = 'transform 0.8s ease-in-out';
+            stressTrack.style.transform = `translateX(-${stressIndex * cardWidth}px)`;
+        }
+
+        function stressPrev() {
+            stressIndex--;
+            if (stressIndex < 0) {
+                stressIndex = stressCards.length - stressPerView;
+            }
+            stressTrack.style.transition = 'transform 0.8s ease-in-out';
+            stressTrack.style.transform = `translateX(-${stressIndex * cardWidth}px)`;
+        }
+
+
+        setInterval(stressAutoSlide, 4000);
+
+
+        const premiumTrack = document.querySelector('.jh-track');
+        const premiumCards = Array.from(document.querySelectorAll('.jh-card'));
+        let premiumIndex = 0;
+
+        const premiumPerView = 4;
+        const pStyle = getComputedStyle(premiumCards[0]);
+        const pMargin = parseInt(pStyle.marginRight) + parseInt(pStyle.marginLeft);
+        const pWidth = premiumCards[0].offsetWidth + pMargin;
+
+        function premiumNext() {
+            premiumIndex++;
+            if (premiumIndex > premiumCards.length - premiumPerView) {
+                premiumIndex = 0;
+            }
+            premiumTrack.style.transform = `translateX(-${premiumIndex * pWidth}px)`;
+        }
+
+        function premiumPrev() {
+            premiumIndex--;
+            if (premiumIndex < 0) {
+                premiumIndex = premiumCards.length - premiumPerView;
+            }
+            premiumTrack.style.transform = `translateX(-${premiumIndex * pWidth}px)`;
+        }
+
+        function premiumAutoSlide() {
+            premiumIndex++;
+            if (premiumIndex > premiumCards.length - premiumPerView) {
+                premiumIndex = 0;
+            }
+            premiumTrack.style.transform = `translateX(-${premiumIndex * pWidth}px)`;
+        }
+
+        setInterval(premiumAutoSlide, 4000);
+
+
+
+        const experiences = [
+            {
+                desc: "I am so happy to book my travel experience with Journey Holidays. The team was well trained and professional.",
+                name: "Shubham Srivastava",
+                role: "Traveller"
+            },
+            {
+                desc: "Journey Holidays planned our honeymoon perfectly. Everything was smooth and stress-free.",
+                name: "Ananya Sharma",
+                role: "Honeymoon Traveller"
+            },
+            {
+                desc: "Amazing service, great hotels and timely support throughout the journey.",
+                name: "Rahul Mehta",
+                role: "Group Traveller"
+            }
+        ];
+
+        let expIndex = 0;
+        const descEl = document.getElementById("exp-desc");
+        const nameEl = document.getElementById("exp-name");
+        const roleEl = document.getElementById("exp-role");
+        const dots = document.querySelectorAll(".exp-dots .dot");
+
+        function showExp(index) {
+            expIndex = index;
+            descEl.innerText = experiences[index].desc;
+            nameEl.innerText = experiences[index].name;
+            roleEl.innerText = experiences[index].role;
+
+            dots.forEach(d => d.classList.remove("active"));
+            dots[index].classList.add("active");
+        }
+
+        // Auto slide
+        setInterval(() => {
+            expIndex = (expIndex + 1) % experiences.length;
+            showExp(expIndex);
+        }, 5000);
+
+        function scrollToContact() {
+            document.getElementById("contact").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
 
     </script>
+
 
 </body>
 
